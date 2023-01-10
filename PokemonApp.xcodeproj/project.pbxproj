@@ -21,6 +21,10 @@
 		F5A49AFD296E18D100D6706F /* HTTPRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49AFC296E18D100D6706F /* HTTPRequestError.swift */; };
 		F5A49AFF296E1D1300D6706F /* HomeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49AFE296E1D1300D6706F /* HomeListViewModel.swift */; };
 		F5A49B03296E1D3E00D6706F /* HomeListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49B02296E1D3E00D6706F /* HomeListViewModelProtocol.swift */; };
+		F5A49B14296E1FC400D6706F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49B10296E1FC400D6706F /* ViewController.swift */; };
+		F5A49B15296E1FC400D6706F /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49B11296E1FC400D6706F /* View.swift */; };
+		F5A49B16296E1FC400D6706F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49B12296E1FC400D6706F /* CollectionViewCell.swift */; };
+		F5A49B17296E1FC400D6706F /* ViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49B13296E1FC400D6706F /* ViewConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		F5A49AFC296E18D100D6706F /* HTTPRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestError.swift; sourceTree = "<group>"; };
 		F5A49AFE296E1D1300D6706F /* HomeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewModel.swift; sourceTree = "<group>"; };
 		F5A49B02296E1D3E00D6706F /* HomeListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewModelProtocol.swift; sourceTree = "<group>"; };
+		F5A49B10296E1FC400D6706F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F5A49B11296E1FC400D6706F /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		F5A49B12296E1FC400D6706F /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		F5A49B13296E1FC400D6706F /* ViewConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,7 @@
 				F5A49AEF296DD17500D6706F /* App */,
 				F5A49AEB296DD14A00D6706F /* Scenes */,
 				F5A49AF0296DD1FD00D6706F /* Resources */,
+				F5A49B0D296E1EC300D6706F /* Extensions */,
 				F5A49AF9296E140100D6706F /* Requests */,
 			);
 			path = PokemonApp;
@@ -206,6 +215,25 @@
 				F5A49B02296E1D3E00D6706F /* HomeListViewModelProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F5A49B0D296E1EC300D6706F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F5A49B0F296E1FC400D6706F /* ViewCode */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F5A49B0F296E1FC400D6706F /* ViewCode */ = {
+			isa = PBXGroup;
+			children = (
+				F5A49B10296E1FC400D6706F /* ViewController.swift */,
+				F5A49B11296E1FC400D6706F /* View.swift */,
+				F5A49B12296E1FC400D6706F /* CollectionViewCell.swift */,
+				F5A49B13296E1FC400D6706F /* ViewConfigurator.swift */,
+			);
+			path = ViewCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,7 +403,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A49B14296E1FC400D6706F /* ViewController.swift in Sources */,
 				F5A49B03296E1D3E00D6706F /* HomeListViewModelProtocol.swift in Sources */,
+				F5A49B17296E1FC400D6706F /* ViewConfigurator.swift in Sources */,
+				F5A49B16296E1FC400D6706F /* CollectionViewCell.swift in Sources */,
 				F5A49ABA296DC70300D6706F /* AppDelegate.swift in Sources */,
 				F5A49AFD296E18D100D6706F /* HTTPRequestError.swift in Sources */,
 				F5A49AEE296DD17200D6706F /* AppNavigationController.swift in Sources */,
@@ -383,6 +414,7 @@
 				F5A49AF8296E13FC00D6706F /* HTTPRequest.swift in Sources */,
 				F5A49AEA296DD14300D6706F /* HomeListViewController.swift in Sources */,
 				F5A49ABC296DC70300D6706F /* SceneDelegate.swift in Sources */,
+				F5A49B15296E1FC400D6706F /* View.swift in Sources */,
 				F5A49AFB296E18BE00D6706F /* HTTPRequestable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

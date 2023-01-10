@@ -16,6 +16,11 @@
 		F5A49AD1296DC70600D6706F /* PokemonAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49AD0296DC70600D6706F /* PokemonAppTests.swift */; };
 		F5A49AEA296DD14300D6706F /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49AE9296DD14300D6706F /* HomeListViewController.swift */; };
 		F5A49AEE296DD17200D6706F /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49AED296DD17200D6706F /* AppNavigationController.swift */; };
+		F5A49AF8296E13FC00D6706F /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49AF7296E13FC00D6706F /* HTTPRequest.swift */; };
+		F5A49AFB296E18BE00D6706F /* HTTPRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49AFA296E18BD00D6706F /* HTTPRequestable.swift */; };
+		F5A49AFD296E18D100D6706F /* HTTPRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49AFC296E18D100D6706F /* HTTPRequestError.swift */; };
+		F5A49AFF296E1D1300D6706F /* HomeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49AFE296E1D1300D6706F /* HomeListViewModel.swift */; };
+		F5A49B03296E1D3E00D6706F /* HomeListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49B02296E1D3E00D6706F /* HomeListViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,11 @@
 		F5A49AD0296DC70600D6706F /* PokemonAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAppTests.swift; sourceTree = "<group>"; };
 		F5A49AE9296DD14300D6706F /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
 		F5A49AED296DD17200D6706F /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
+		F5A49AF7296E13FC00D6706F /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		F5A49AFA296E18BD00D6706F /* HTTPRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestable.swift; sourceTree = "<group>"; };
+		F5A49AFC296E18D100D6706F /* HTTPRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestError.swift; sourceTree = "<group>"; };
+		F5A49AFE296E1D1300D6706F /* HomeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewModel.swift; sourceTree = "<group>"; };
+		F5A49B02296E1D3E00D6706F /* HomeListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +123,7 @@
 				F5A49AEF296DD17500D6706F /* App */,
 				F5A49AEB296DD14A00D6706F /* Scenes */,
 				F5A49AF0296DD1FD00D6706F /* Resources */,
+				F5A49AF9296E140100D6706F /* Requests */,
 			);
 			path = PokemonApp;
 			sourceTree = "<group>";
@@ -136,7 +147,9 @@
 		F5A49AEC296DD15100D6706F /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F5A49AE9296DD14300D6706F /* HomeListViewController.swift */,
+				F5A49B01296E1D2200D6706F /* ViewController */,
+				F5A49B00296E1D1600D6706F /* ViewModel */,
+				F5A49B04296E1D4100D6706F /* Protocols */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -159,6 +172,40 @@
 				F5A49AC7296DC70600D6706F /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F5A49AF9296E140100D6706F /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				F5A49AF7296E13FC00D6706F /* HTTPRequest.swift */,
+				F5A49AFA296E18BD00D6706F /* HTTPRequestable.swift */,
+				F5A49AFC296E18D100D6706F /* HTTPRequestError.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		F5A49B00296E1D1600D6706F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F5A49AFE296E1D1300D6706F /* HomeListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F5A49B01296E1D2200D6706F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F5A49AE9296DD14300D6706F /* HomeListViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F5A49B04296E1D4100D6706F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F5A49B02296E1D3E00D6706F /* HomeListViewModelProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,10 +375,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A49B03296E1D3E00D6706F /* HomeListViewModelProtocol.swift in Sources */,
 				F5A49ABA296DC70300D6706F /* AppDelegate.swift in Sources */,
+				F5A49AFD296E18D100D6706F /* HTTPRequestError.swift in Sources */,
 				F5A49AEE296DD17200D6706F /* AppNavigationController.swift in Sources */,
+				F5A49AFF296E1D1300D6706F /* HomeListViewModel.swift in Sources */,
+				F5A49AF8296E13FC00D6706F /* HTTPRequest.swift in Sources */,
 				F5A49AEA296DD14300D6706F /* HomeListViewController.swift in Sources */,
 				F5A49ABC296DC70300D6706F /* SceneDelegate.swift in Sources */,
+				F5A49AFB296E18BE00D6706F /* HTTPRequestable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

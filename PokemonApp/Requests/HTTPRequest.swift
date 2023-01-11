@@ -29,7 +29,7 @@ final class HTTPRequest<Model: Codable> {
         return URLSession.shared.rx.response(request: request)
             .retry(1)
             .map(\.data)
-            .decode(type: Model.self, decoder: JSONDecoder())
+            .decode(type: Model.self, decoder: HTTPRequestDecoder())
             .debug()
             .observe(on: MainScheduler.instance)
         
@@ -38,7 +38,7 @@ final class HTTPRequest<Model: Codable> {
 
 extension HTTPRequest {
     
-    func makeRequest() -> URLRequest? {
+    private func makeRequest() -> URLRequest? {
         var components = URLComponents()
         components.scheme = apiScheme
         components.host = apiHost

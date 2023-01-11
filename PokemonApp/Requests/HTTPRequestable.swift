@@ -12,3 +12,12 @@ protocol HTTPRequestable {
     var query: String { get }
     var headers: [String: String] { get }
 }
+
+extension HTTPRequestable {
+    var query: String {
+        return ""
+    }
+    var headers: [String: String] {
+        return [:]
+    }
+}

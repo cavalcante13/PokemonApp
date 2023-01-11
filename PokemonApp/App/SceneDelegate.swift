@@ -15,7 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         
-        let homeViewController = HomeListViewController()
+        let repository = HomeListViewRepository()
+        let viewModel = HomeListViewModel(repository)
+        let homeViewController = HomeListViewController(viewModel)
         
         window = .init(windowScene: scene)
         window?.rootViewController = AppNavigationController(rootViewController: homeViewController)

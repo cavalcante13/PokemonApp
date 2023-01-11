@@ -10,6 +10,7 @@ import RxSwift
 import SnapKit
 
 final class HomeListViewController: ViewController {
+    
     private var searchController = AppSearchViewController(placeholder: "Pesquise pelo nome do pokemon")
     private var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: .init())
     private var datasource: CompositionalLayoutDatasource?
@@ -54,12 +55,22 @@ final class HomeListViewController: ViewController {
     
     override func bindingViews() {
         searchController.searchBar.rx.text
+            .delay(.seconds(2), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] text in
-                print(text)
+                self?.viewModel.search(text: text ?? "")
             })
             .disposed(by: disposeBag)
         
+        viewModel.filteredResult.subscribe(onNext: { [weak self] response in
+            self?.snapshot.deleteAllItems()
+            self?.snapshot.appendItems(response.results, toSection: .pokemons)
+            self?.dataSourceApply()
+        }, onError: { error in
+            print(error)
+        }).disposed(by: disposeBag)
+        
         viewModel.result.subscribe(onNext: { [weak self] response in
+            self?.snapshot.deleteAllItems()
             self?.snapshot.appendItems(response.results, toSection: .pokemons)
             self?.dataSourceApply()
         }, onError: { error in
@@ -95,6 +106,7 @@ final class HomeListViewController: ViewController {
         return cell ?? .init()
     }
 }
+
 extension HomeListViewController: UICollectionViewDelegate {
     
 }

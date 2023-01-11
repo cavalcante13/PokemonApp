@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 
-protocol HomeListViewModelRepositoryProtocol: HTTPRequestable {
+protocol HomeListViewModelRepositoryProtocol {
     func loadPokemons() -> Observable<PokemonResponse>
+    func searchPokemons(text: String) -> Observable<PokemonResponse>
 }

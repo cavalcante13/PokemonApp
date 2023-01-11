@@ -10,12 +10,15 @@ import RxSwift
 
 final class HomeListViewRepository: HomeListViewModelRepositoryProtocol {
     
-    var path: String = "pokemon"
-    
-    init() {}
-    
     func loadPokemons() -> Observable<PokemonResponse> {
-        let request: HTTPRequest<PokemonResponse> = .init(self)
+        let requestable = HomeListPokemonsRequestable()
+        let request: HTTPRequest<PokemonResponse> = .init(requestable)
+        return request.fetch()
+    }
+    
+    func searchPokemons(text: String) -> Observable<PokemonResponse> {
+        let requestable = HomeListSearchRequestable(text: text)
+        let request: HTTPRequest<PokemonResponse> = .init(requestable)
         return request.fetch()
     }
 }

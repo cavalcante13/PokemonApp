@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0CF17377722FA9EDBE6A0CAB /* Pods_PokemonAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9610BD90B38EB4C66C2D656D /* Pods_PokemonAppTests.framework */; };
 		86362401D09B286E57D474CE /* Pods_PokemonApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9CEAFBF3C8E41BCA0927A20 /* Pods_PokemonApp.framework */; };
+		F51975D3296E508900C79D1A /* AppSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51975D2296E508900C79D1A /* AppSearchViewController.swift */; };
 		F5A49ABA296DC70300D6706F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49AB9296DC70300D6706F /* AppDelegate.swift */; };
 		F5A49ABC296DC70300D6706F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A49ABB296DC70300D6706F /* SceneDelegate.swift */; };
 		F5A49AC3296DC70600D6706F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A49AC2296DC70600D6706F /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		5D85704E201BFFB71D298555 /* Pods-PokemonApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonApp.release.xcconfig"; path = "Target Support Files/Pods-PokemonApp/Pods-PokemonApp.release.xcconfig"; sourceTree = "<group>"; };
 		9610BD90B38EB4C66C2D656D /* Pods_PokemonAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CEAFBF3C8E41BCA0927A20 /* Pods_PokemonApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F51975D2296E508900C79D1A /* AppSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearchViewController.swift; sourceTree = "<group>"; };
 		F5A49AB6296DC70300D6706F /* PokemonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A49AB9296DC70300D6706F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5A49ABB296DC70300D6706F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F51975D4296E508D00C79D1A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F51975D2296E508900C79D1A /* AppSearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F51975D5296E50A400C79D1A /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				F5A49B28296E3AFD00D6706F /* Typealias */,
+				F5A49B0F296E1FC400D6706F /* ViewCode */,
+				F5A49B2B296E3B3400D6706F /* CompositionalLayout */,
+				F51975D4296E508D00C79D1A /* Search */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
 		F5A49AAD296DC70300D6706F = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +171,7 @@
 			children = (
 				F5A49AEF296DD17500D6706F /* App */,
 				F5A49AEB296DD14A00D6706F /* Scenes */,
+				F51975D5296E50A400C79D1A /* Commons */,
 				F5A49B0D296E1EC300D6706F /* Extensions */,
 				F5A49AF9296E140100D6706F /* Requests */,
 				F5A49B1F296E23D200D6706F /* Models */,
@@ -245,9 +267,6 @@
 		F5A49B0D296E1EC300D6706F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F5A49B28296E3AFD00D6706F /* Typealias */,
-				F5A49B0F296E1FC400D6706F /* ViewCode */,
-				F5A49B2B296E3B3400D6706F /* CompositionalLayout */,
 				F5A49B32296E3D2700D6706F /* CollectionView */,
 			);
 			path = Extensions;
@@ -503,6 +522,7 @@
 				F5A49B23296E367100D6706F /* PokemonResponse.swift in Sources */,
 				F5A49B19296E20AF00D6706F /* HomeListViewModelRepositoryProtocol.swift in Sources */,
 				F5A49B15296E1FC400D6706F /* View.swift in Sources */,
+				F51975D3296E508900C79D1A /* AppSearchViewController.swift in Sources */,
 				F5A49AFB296E18BE00D6706F /* HTTPRequestable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

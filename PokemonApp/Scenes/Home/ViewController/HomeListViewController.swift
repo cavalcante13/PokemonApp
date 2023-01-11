@@ -10,7 +10,7 @@ import RxSwift
 import SnapKit
 
 final class HomeListViewController: ViewController {
-    
+    private var searchController = AppSearchViewController(placeholder: "Pesquise pelo nome do pokemon")
     private var collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: .init())
     private var datasource: CompositionalLayoutDatasource?
     private var snapshot: CompositionalLayoutSnapshot = .init()
@@ -30,6 +30,10 @@ final class HomeListViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationItem.title = "PokemonApp"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
         viewModel.loadData()
     }
     
@@ -49,6 +53,12 @@ final class HomeListViewController: ViewController {
     }
     
     override func bindingViews() {
+        searchController.searchBar.rx.text
+            .subscribe(onNext: { [weak self] text in
+                print(text)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.result.subscribe(onNext: { [weak self] response in
             self?.snapshot.appendItems(response.results, toSection: .pokemons)
             self?.dataSourceApply()

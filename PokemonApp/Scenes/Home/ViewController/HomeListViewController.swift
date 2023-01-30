@@ -55,22 +55,21 @@ final class HomeListViewController: ViewController {
     
     override func bindingViews() {
         searchController.searchBar.rx.text
-            .delay(.seconds(2), scheduler: MainScheduler.instance)
+            .delay(.milliseconds(5), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
             .subscribe(onNext: { [weak self] text in
-                self?.viewModel.search(text: text ?? "")
+                self?.handlerWithSearch(text ?? "")
             })
             .disposed(by: disposeBag)
         
         viewModel.filteredResult.subscribe(onNext: { [weak self] response in
-            self?.snapshot.deleteAllItems()
-            self?.snapshot.appendItems(response.results, toSection: .pokemons)
+            self?.snapshot.appendItems(response, toSection: .pokemons)
             self?.dataSourceApply()
         }, onError: { error in
             print(error)
         }).disposed(by: disposeBag)
         
         viewModel.result.subscribe(onNext: { [weak self] response in
-            self?.snapshot.deleteAllItems()
             self?.snapshot.appendItems(response.results, toSection: .pokemons)
             self?.dataSourceApply()
         }, onError: { error in
@@ -82,7 +81,6 @@ final class HomeListViewController: ViewController {
         if !snapshot.sectionIdentifiers.contains(.pokemons) {
             snapshot.appendSections([.pokemons])
         }
-        
         datasource = .init(collectionView: collectionView, cellProvider: { [weak self] collectionView, indexPath, item in
             return self?.cell(collectionView: collectionView, indexPath: indexPath, item: item)
         })
@@ -105,8 +103,32 @@ final class HomeListViewController: ViewController {
         cell?.set(item)
         return cell ?? .init()
     }
+    
+    private func handlerWithSearch(_ text: String) {
+        if text.isEmpty == true {
+            self.viewModel.loadData()
+        }else {
+            self.viewModel.search(text: text)
+        }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 extension HomeListViewController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let height = scrollView.contentSize.height
+        
+        if (offsetY > (height - scrollView.frame.size.height)) {
+            self.viewModel.loadMoreData()
+        }
+    }
 }

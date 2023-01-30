@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class HomeListCollectionViewCell: CollectionViewCell {
     
@@ -49,6 +50,7 @@ final class HomeListCollectionViewCell: CollectionViewCell {
     func set(_ pokemon: PokemonResponse.Result) {
         self.pokemon = pokemon
         self.nameLabel.text = pokemon.name
+        self.imageView.kf.setImage(with: pokemon.imgUrl)
     }
     
     private func configureContainerView() {
@@ -60,7 +62,6 @@ final class HomeListCollectionViewCell: CollectionViewCell {
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
-        imageView.image = .init(named: "pikachu")
     }
     
     private func configureNameLabel() {

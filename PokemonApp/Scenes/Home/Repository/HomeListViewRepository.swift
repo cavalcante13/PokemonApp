@@ -16,8 +16,8 @@ final class HomeListViewRepository: HomeListViewModelRepositoryProtocol {
         return request.fetch()
     }
     
-    func searchPokemons(text: String) -> Observable<PokemonResponse> {
-        let requestable = HomeListSearchRequestable(text: text)
+    func loadMorePokemons(next page: String) -> Observable<PokemonResponse> {
+        let requestable = HomeListMorePokemonsRequestable(page: page)
         let request: HTTPRequest<PokemonResponse> = .init(requestable)
         return request.fetch()
     }
